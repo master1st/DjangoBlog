@@ -17,4 +17,4 @@ def __str__(self):
 
 
 def get_absolute_url(self):
-    return f'/blog/{self.pk}'
+    return f'/blog/{self.pk}/'
