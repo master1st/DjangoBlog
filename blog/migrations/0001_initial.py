@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=30)),
                 ('content', models.TextField()),
-                ('create_at', models.DateTimeField()),
+                ('created_at', models.DateTimeField()),
             ],
         ),
     ]

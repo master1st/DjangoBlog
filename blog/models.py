@@ -1,3 +1,4 @@
+from turtle import mode
 from django.db import models
 
 
@@ -8,13 +9,11 @@ class Post(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # Create your models here.
 
-# Create your models here.
+    # method
+    def __str__(self):
+        return f'[{self.pk}] [{self.title}]'
 
-
-def __str__(self):
-    return f'[{self.pk}]{self.title}'
-
-
-def get_absolute_url(self):
-    return f'/blog/{self.pk}/'
+    def get_absolute_url(self):
+        return f'/blog/{self.pk}/'
