@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,3 +122,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+##settings에서 먼저 이런식으로 정적인 URL을 지정해준다음에, css요소들을 보여줄
+# 디렉터리를 하나만들고 그안에 요소들을 기술하는데 나의 디렉터리는 static이고
+# static을 사용하겠다고 정적 URL을 바로위 문법에 기입했다.
