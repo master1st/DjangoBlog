@@ -82,6 +82,13 @@
         <p>{{ post.content }}</p>
         <hr>
 
+          {% if post.file_upload %}
+            <a href={{ post.file_upload.url }}
+                       {{ post.get_file_name }}
+                       </a>
+          {% endif %}
+
+         <hr>
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
