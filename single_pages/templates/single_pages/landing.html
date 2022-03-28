@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>홈페이지 대문</title>
-</head>
-<body>
-    <nav>
-        <a href="/blog/">BLOG</a>
-        <a href="/about_me/">about me</a>
-    </nav>
+{% load static %}
 
-</body>
-</html>
+  <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+{% include 'blog/navbar.html' %}
+본문
+{% include 'blog/footer.html' %}
