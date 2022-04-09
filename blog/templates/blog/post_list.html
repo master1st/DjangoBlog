@@ -4,8 +4,12 @@
                 <title>Blog</title>
             {% endblock %}
 {% block main_area %}
-                <h1>Blog {% if category %} in category '{{ category }}'</h1>
-                {% endif %}
+                <h1>
+                    Blog
+                    {% if category %} in category '{{ category }}' {% endif %}
+                {% if tag %} with tag '{{ tag }}' {% endif %}
+                    </h1>
+
 
                 {% for p in post_list %}
                 <!-- Blog Post -->
@@ -20,14 +24,12 @@
                         <p class="card-text">{{ p.hook | truncatewords:45}}</p>
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                         {% if p.tags.exists %}
-                        <br/>
-                        <i class = "fas fa-tags"></i>
-                        {% for tag in p.tags.iterator %}
-                            <a href = {{ tag.get_absolute_url }}> {{ tag }}</a>
+                            <br/>
+                            <i class = "fas fa-tags"></i>
+                            {% for tag in p.tags.iterator %}
+                                <a href = {{ tag.get_absolute_url }}> {{ tag }}</a>
                             {% endfor %}
-                            <br/>
-                            <br/>
-                        {% endif %}
+                            <br/>   <br/>{% endif %}
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ p.created_at}} by

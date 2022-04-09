@@ -27,11 +27,14 @@ class Category(models.Model):
         return f'/blog/category/{self.slug}/'
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'categories'
+    # 오류 여기서 c를 C라고 적음
+
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
+
     hook = models.TextField(blank=True)
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
@@ -43,8 +46,6 @@ class Post(models.Model):
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField(Tag, blank=True)
 
-
-
     create_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
    # Create your models here.
@@ -55,6 +56,6 @@ class Post(models.Model):
 
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
-
+# 에러시 return os.path.basename(self.attached_file.name) 로변경
     def get_absolute_url(self):
-        return f'/blog/{self.pk}/'
+        return f'/blog/{self.pk}'
