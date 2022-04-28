@@ -8,13 +8,16 @@
       <!-- Post Content Column -->
       <div class="col-lg-8">
 
+        {% if user.is_authenticated and user == post.author %}
+            <a href = "/blog/update_post/{{ post.pk }}">Update blog</a>
+        {% endif %}
         <!-- Title -->
         <h1 class="mt-4">{{ post.title }}</h1>
 
         <!-- Author -->
         <p class="lead">
           by
-          <a href="#">{{ p.author }}</a>
+          <a href="#">{{ post.author }}</a>
         </p>
 
         <hr>

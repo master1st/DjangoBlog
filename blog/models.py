@@ -24,7 +24,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/blog/category/{self.slug}/'
+        return f'/blog/category/{self.slug}'
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -42,7 +42,7 @@ class Post(models.Model):
 
     # ForeingKey를 통해 라이브러리 모델의 레퍼런스값 키를 받아오는 함수에서 매개변수로는 User
     # 그리고 삭제되었을때, 작성자만 지우는게아니라, 글도 같이 삭제되게끔.
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField(Tag, blank=True)
 
