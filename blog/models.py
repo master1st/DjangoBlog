@@ -3,6 +3,8 @@ from turtle import mode
 from django.db import models
 from django.contrib.auth.models import User
 
+from markdown import markdown
+from markdownx.models import MarkdownxField
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -33,7 +35,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
-    content = models.TextField()
+    content = MarkdownxField()
 
     hook = models.TextField(blank=True)
 
@@ -59,3 +61,6 @@ class Post(models.Model):
 # 에러시 return os.path.basename(self.attached_file.name) 로변경
     def get_absolute_url(self):
         return f'/blog/{self.pk}'
+
+    def get_markdown_content(self):
+        return markdown(self.content)

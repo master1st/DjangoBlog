@@ -27,7 +27,11 @@
                     {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ p.title}}</h2>
-                        <p class="card-text">{{ p.hook | truncatewords:45}}</p>
+                    {% if p.hook_msg %}
+                        <p class="card-text">{{ p.hook_msg }}</p>
+                    {% else %}
+                        <p class="card-text">{{ p.get_markdown_content | truncatewords:30 | safe}}</p>
+                    {% endif %}
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                         {% if p.tags.exists %}
                             <br/>4

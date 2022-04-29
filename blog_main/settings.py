@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'crispy_forms',
+    'markdownx',
     'blog',
     'single_pages',
+
 ]
 
 MIDDLEWARE = [
@@ -125,6 +129,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ##settings에서 먼저 이런식으로 정적인 URL을 지정해준다음에, css요소들을 보여줄
 # 디렉터리를 하나만들고 그안에 요소들을 기술하는데 나의 디렉터리는 static이고
 # static을 사용하겠다고 정적 URL을 바로위 문법에 기입했다.
