@@ -14,6 +14,5 @@
             {{ post.title }} by {{ post.author.username }}
         </a></h6>
         <p>{{ post.get_content_markdown | truncatewords_html:30 | safe}}</p>
-
     </div>
 {% endfor %}
